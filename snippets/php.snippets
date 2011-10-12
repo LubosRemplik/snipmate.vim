@@ -213,3 +213,61 @@ snippet fun
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+# model ...
+snippet model
+	<?php
+	/**
+	 * ${1:ModelName} Model ${2} 
+	 **/
+	class $1 extends ${3:AppModel} {
+		
+		public $name = $1; 
+
+		public $actsAs = array(
+			'Containable',${4}
+		);
+
+		public $hasOne = array(${5});
+
+		public $hasMany = array(${6});
+
+		public $belongsTo = array(${7});
+
+		public $hasAndBelongsToMany = array(${8});
+		
+		public $validate = array(
+			'${9:field}' => '${10:notEmpty}',
+		);
+
+		public function beforeFind($queryData) {
+			return $queryData;
+		}
+
+		public function afterFind($results, $primary) {
+			return $results;
+		}
+
+		public function beforeValidate() {
+			return true;
+		}
+
+		public function beforeSave() {
+			return true;
+		}
+
+		public function afterSave($created) {
+			return true;
+		}
+
+		public function beforeDelete($cascade) {
+			return true;
+		}
+
+		public function afterDelete() {
+			return true;
+		}
+
+		public function onError() {
+			return true;
+		}
+	}
