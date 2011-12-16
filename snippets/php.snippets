@@ -256,7 +256,6 @@ snippet model
 		}
 
 		public function afterSave($created) {
-			return true;
 		}
 
 		public function beforeDelete($cascade) {
@@ -264,11 +263,9 @@ snippet model
 		}
 
 		public function afterDelete() {
-			return true;
 		}
 
 		public function onError() {
-			return true;
 		}
 	}
 # controller ...
@@ -290,15 +287,12 @@ snippet controller
 		public $components = array(${7});
 
 		public function beforeFilter() {
-		
 		}
 		
 		public function beforeRender() {
-		
 		}
 
 		public function afterFilter() {
-		
 		}
 
 		public function index() {
@@ -320,22 +314,17 @@ snippet component
 		}
 
 		public function initialize($controller) {
-
 		}
 
 		public function startup($controller) {
-		
 		}
 
 		public function beforeRender($controller) {
-		
 		}
 
 		public function shutdown($controller) {
-		
 		}
 
 		public function beforeRedirect($controller, $url, $status=null, $exit=true) {
-		
 		}
 	}
