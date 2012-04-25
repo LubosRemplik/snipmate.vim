@@ -216,87 +216,30 @@ snippet array
 # model ...
 snippet model
 	<?php
-	/**
-	 * ${1:ModelName} Model ${2} 
-	 **/
-	class $1 extends ${3:AppModel} {
+	App::uses('${2:AppModel}', '${1:Plugin}.Model');
+	class ${3:Model} extends $2 {
 		
-		public $name = '$1'; 
-
 		public $actsAs = array(
-			'Containable',${4}
+			${4:Behaviors}
 		);
-
-		public $hasOne = array(${5});
-
-		public $hasMany = array(${6});
-
-		public $belongsTo = array(${7});
-
-		public $hasAndBelongsToMany = array(${8});
-		
-		public $validate = array(
-			'${9:field}' => '${10:notEmpty}',
-		);
-
-		public function beforeFind($queryData) {
-			return $queryData;
-		}
-
-		public function afterFind($results, $primary) {
-			return $results;
-		}
-
-		public function beforeValidate() {
-			return true;
-		}
-
-		public function beforeSave() {
-			return true;
-		}
-
-		public function afterSave($created) {
-		}
-
-		public function beforeDelete($cascade) {
-			return true;
-		}
-
-		public function afterDelete() {
-		}
-
-		public function onError() {
-		}
 	}
 # controller ...
 snippet controller
 	<?php
-	/**
-	 * ${1:ControllerName} Controller ${2}
-	 **/
-	class $1Controller extends ${3:AppController} {
-
-		public $name = '$1';
+	App::uses('${2:AppController}', '${1:Plugin}.Controller');
+	class $3Controller extends $2 {
 
 		public $uses = array(
-			'${4:ModelName}',${5}
+			${4}
 		);
 
-		public $helpers = array(${6});
+		public $components = array(
+		);
 
-		public $components = array(${7});
-
-		public function beforeFilter() {
-		}
-		
-		public function beforeRender() {
-		}
-
-		public function afterFilter() {
-		}
+		public $helpers = array(
+		);
 
 		public function index() {
-			${8}
 		}
 	}
 #component
